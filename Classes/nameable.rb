@@ -1,5 +1,5 @@
 class Nameable
-  def correct_name(name)
-    name.capitalize.slice(0, 10)
+  def correct_name
+    raise NotImplementedError, 'Please implement correct_name'
   end
 end
