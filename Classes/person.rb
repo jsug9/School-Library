@@ -1,7 +1,7 @@
 require 'securerandom'
-require_relative 'nameable'
-require_relative 'capitalize_decorator'
-require_relative 'trimmed_decorator'
+require_relative './Decorators/nameable'
+require_relative './Decorators/capitalize_decorator'
+require_relative './Decorators/trimmed_decorator'
 
 class Person < Nameable
   attr_accessor :name, :age, :parent_permission
