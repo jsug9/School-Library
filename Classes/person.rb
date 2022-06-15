@@ -2,9 +2,11 @@ require 'securerandom'
 require_relative './Decorators/nameable'
 require_relative './Decorators/capitalize_decorator'
 require_relative './Decorators/trimmed_decorator'
+require_relative 'rental'
+require_relative 'book'
 
 class Person < Nameable
-  attr_accessor :name, :age, :parent_permission
+  attr_accessor :name, :age, :parent_permission, :rentals
   attr_reader :id
 
   def initialize(age, name = 'Unknown', parent_permission: true)
@@ -13,6 +15,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
   end
 
   def of_age?
@@ -28,6 +31,10 @@ class Person < Nameable
   def correct_name
     @name
   end
+
+  def add_rental(date, book)
+    Rental.new(date, book, self)
+  end
 end
 
 person = Person.new(22, 'maximilianus')
@@ -41,3 +48,8 @@ puts capitalized_person.correct_name
 capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
 puts capitalized_trimmed_person.correct_name
 # => Maximilian
+
+book = Book.new('The Great Gatsby', 'F. Scott Fitzgerald')
+person.add_rental('Date.today', book)
+puts person.rentals.first.book.title
+# => The Great Gatsby
