@@ -3,7 +3,6 @@ require_relative './Decorators/nameable'
 require_relative './Decorators/capitalize_decorator'
 require_relative './Decorators/trimmed_decorator'
 require_relative 'rental'
-require_relative 'book'
 
 class Person < Nameable
   attr_accessor :name, :age, :parent_permission, :rentals
@@ -48,8 +47,3 @@ puts capitalized_person.correct_name
 capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
 puts capitalized_trimmed_person.correct_name
 # => Maximilian
-
-book = Book.new('The Great Gatsby', 'F. Scott Fitzgerald')
-person.add_rental('Date.today', book)
-puts person.rentals.first.book.title
-# => The Great Gatsby

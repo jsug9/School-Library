@@ -1,3 +1,5 @@
+require_relative 'rental'
+
 class Book
   attr_accessor :title, :author
   attr_reader :rentals
@@ -12,3 +14,7 @@ class Book
     Rental.new(date, self, person)
   end
 end
+
+book = Book.new('The Great Gatsby', 'F. Scott Fitzgerald')
+puts book.title
+# => The Great Gatsby
