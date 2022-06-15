@@ -1,5 +1,5 @@
 class App
   def run
-    puts "Hello, world!"
+    puts 'Hello, world!'
   end
 end
