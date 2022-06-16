@@ -8,6 +8,7 @@ def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
 
   while status
     puts 'Welcome to School Library App!'
+    puts
     puts 'Please choose an option by entering a number:'
     puts '1 - List all books'
     puts '2 - List all people'
@@ -21,9 +22,9 @@ def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
 
     case option
     when '1'
-      app.all_books
+      app.list_all_books
     when '2'
-      app.all_people
+      app.list_all_people
     when '3'
       app.create_person
     when '4'
@@ -31,14 +32,12 @@ def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
     when '5'
       app.create_rental
     when '6'
-      app.all_rentals_id
+      app.list_all_rentals_for_id
     when '7'
-      puts
       puts 'Thank you for using this app!'
       puts
       status = false
     else
-      puts
       puts 'Sorry, you choose a wrong option'
       puts
     end

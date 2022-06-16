@@ -2,6 +2,7 @@ require_relative './Classes/student'
 require_relative './Classes/teacher'
 require_relative './Classes/book'
 require_relative './Classes/rental'
+require_relative 'get_values'
 
 class App
   attr_reader :books, :people, :rentals
@@ -21,18 +22,35 @@ class App
   end
 
   def create_person
-    puts 'person test'
+    puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
+    input = gets.chomp
+
+    case input
+    when '1' then create_student
+    when '2' then create_teacher
+    else
+      puts 'Sorry, you choose a wrong option'
+      create_person
+    end
+
+    puts 'Person created successfully'
   end
 
-  def create_book
-    puts 'book test'
+  def create_student
+    age = age_getter
+    name = name_getter
+    parent_permission = permission_getter
+    student = Student.new(age, name, parent_permission: parent_permission)
+    people << student unless @people.include?(student)
+    puts 'Person created successfully'
   end
 
-  def create_rental
-    puts 'rental test'
-  end
-
-  def list_all_rentals_for_id
-    puts 'list rental test'
+  def create_teacher
+    age = age_getter
+    name = name_getter
+    specialization = specialization_getter
+    teacher = Teacher.new(age, specialization, name)
+    people << teacher unless @people.include?(teacher)
+    puts 'Person created successfully'
   end
 end
