@@ -32,7 +32,6 @@ class App
       puts 'Sorry, you choose a wrong option'
       create_person
     end
-
     puts 'Person created successfully'
   end
 
@@ -42,7 +41,6 @@ class App
     parent_permission = permission_getter
     student = Student.new(age, name, parent_permission: parent_permission)
     people << student unless @people.include?(student)
-    puts 'Person created successfully'
   end
 
   def create_teacher
@@ -51,7 +49,6 @@ class App
     specialization = specialization_getter
     teacher = Teacher.new(age, specialization, name)
     people << teacher unless @people.include?(teacher)
-    puts 'Person created successfully'
   end
 
   def create_book
