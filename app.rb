@@ -62,17 +62,16 @@ class App
     book = Book.new(title, author)
     books << book unless @books.include?(book)
     puts 'Book created successfully'
-    main_menu
   end
 
   def create_rental
-    puts 'Select a book from the following list by number (not id)'
+    puts 'Select a book from the following list by number'
     books.each_with_index do |book, index|
       puts "#{index}) Title: #{book.title}, Author: #{book.author}"
     end
     book_selection = gets.chomp.to_i
     puts
-    puts 'Select a person from the following list by number)'
+    puts 'Select a person from the following list by number (not id)'
     people.each_with_index do |person, index|
       puts "#{index}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
@@ -80,9 +79,9 @@ class App
     puts ''
     print('Enter the date of the rental (YYYY-MM-DD): ')
     rental_date = gets.chomp
-    rentals << Rental.new(books[book_selection], people[person_selection], rental_date)
+    rental = Rental.new(rental_date, books[book_selection], people[person_selection])
+    rentals << rental
     puts 'Rental created successfully'
-    main_menu
   end
 
   def list_all_rentals_by_id
@@ -97,6 +96,5 @@ class App
     person.rentals.each do |rental|
       puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
     end
-    main_menu
   end
 end
