@@ -56,9 +56,9 @@ class App
 
   def create_book
     print 'Title: '
-    title = gets.chomp
+    title = gets.chomp.capitalize
     print 'Author: '
-    author = gets.chomp
+    author = gets.chomp.capitalize
     book = Book.new(title, author)
     books << book unless @books.include?(book)
     puts 'Book created successfully'
