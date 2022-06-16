@@ -53,4 +53,17 @@ class App
     people << teacher unless @people.include?(teacher)
     puts 'Person created successfully'
   end
+
+  def create_book
+    print 'Title: '
+    title = gets.chomp
+    print 'Author: '
+    author = gets.chomp
+    book = Book.new(title, author)
+    books << book unless @books.include?(book)
+    puts 'Book created successfully'
+    main_menu
+  end
+
+  
 end
