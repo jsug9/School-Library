@@ -1,0 +1,1 @@
+The problem here is that if I press a key that is not between 1 and 7, the app is closed, please help me! :(
