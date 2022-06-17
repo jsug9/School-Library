@@ -40,6 +40,7 @@ def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
     else
       puts 'Sorry, you choose a wrong option'
       puts
+      status = false
     end
   end
 end
