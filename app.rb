@@ -53,7 +53,7 @@ class App
 
   def create_book
     print 'Title: '
-    title = gets.chomp.capitalize
+    title = gets.chomp.capitalized
     print 'Author: '
     author = gets.chomp.capitalize
     book = Book.new(title, author)
