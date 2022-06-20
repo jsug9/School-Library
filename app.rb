@@ -1,7 +1,7 @@
-require_relative './MainClasses/create_rental'
 require_relative './MainClasses/show_lists'
 require_relative './MainClasses/create_person'
 require_relative './MainClasses/create_book'
+require_relative './MainClasses/create_rental'
 
 class App
   attr_reader :books, :people, :rentals
@@ -34,7 +34,7 @@ class App
       when '2' then ShowLists.new.list_all_people(@people)
       when '3' then CreatePerson.new.create_person(@people)
       when '4' then CreateBook.new.create_book(@books)
-      when '5' then create_rental(@books, @people, @rentals)
+      when '5' then CreateRental.new.create_rental(@books, @people, @rentals)
       when '6' then ShowLists.new.list_all_rentals_by_id(@people)
       when '7'
         puts "Thank you for using this app!\n "
