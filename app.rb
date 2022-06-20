@@ -8,10 +8,10 @@ class App
   attr_reader :books, :people, :rentals
 
   # Remove unnecessary parameters
-  def initialize(books = [], people = [], rentals = [])
-    @books = books
-    @people = people
-    @rentals = rentals
+  def initialize
+    @books = []
+    @people = []
+    @rentals = []
   end
 
   # Lists files
