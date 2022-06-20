@@ -2,6 +2,7 @@ require_relative './Classes/student'
 require_relative './Classes/teacher'
 require_relative './Classes/book'
 require_relative './Classes/rental'
+require_relative './MainClasses/create_rental'
 require_relative 'get_values'
 
 class App
@@ -36,7 +37,7 @@ class App
       when '1' then list_all_books
       when '3' then create_person
       when '4' then create_book
-      when '5' then create_rental
+      when '5' then create_rental(@books, @people, @rentals)
       when '6' then list_all_rentals_by_id
       when '7'
         puts "Thank you for using this app!\n "
@@ -96,27 +97,6 @@ class App
     book = Book.new(title, author)
     books << book unless @books.include?(book)
     puts 'Book created successfully'
-  end
-
-  # Create rental file
-  def create_rental
-    puts 'Select a book from the following list by number'
-    books.each_with_index do |book, index|
-      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
-    end
-    book_selection = gets.chomp.to_i
-    puts
-    puts 'Select a person from the following list by number (not id)'
-    people.each_with_index do |person, index|
-      puts "#{index}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-    end
-    person_selection = gets.chomp.to_i
-    puts ''
-    print('Enter the date of the rental (YYYY-MM-DD): ')
-    rental_date = gets.chomp
-    rental = Rental.new(rental_date, books[book_selection], people[person_selection])
-    rentals << rental
-    puts 'Rental created successfully'
   end
 
   # Lists files
