@@ -7,12 +7,14 @@ require_relative 'get_values'
 class App
   attr_reader :books, :people, :rentals
 
+  # Remove unnecessary parameters
   def initialize(books = [], people = [], rentals = [])
     @books = books
     @people = people
     @rentals = rentals
   end
 
+  # Lists files
   def list_all_books
     @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
   end
@@ -21,6 +23,7 @@ class App
     @people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
   end
 
+  # Create People file
   def create_person
     puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
     input = gets.chomp
@@ -51,6 +54,7 @@ class App
     people << teacher unless @people.include?(teacher)
   end
 
+  # Create books file
   def create_book
     print 'Title: '
     title = gets.chomp.capitalize
@@ -61,6 +65,7 @@ class App
     puts 'Book created successfully'
   end
 
+  # Create rental file
   def create_rental
     puts 'Select a book from the following list by number'
     books.each_with_index do |book, index|
@@ -81,6 +86,7 @@ class App
     puts 'Rental created successfully'
   end
 
+  # Lists files
   def list_all_rentals_by_id
     puts 'Select a person from the following list by number (not id)'
     people.each_with_index do |person, index|
