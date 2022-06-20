@@ -26,7 +26,7 @@ class App
     ]
   end
 
-  def run
+  def run # rubocop:disable Metrics/CyclomaticComplexity
     while @status
       @welcome_message.each { |i| puts i }
       option = gets.chomp
