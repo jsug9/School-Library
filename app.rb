@@ -3,11 +3,14 @@ require_relative './Classes/teacher'
 require_relative './Classes/book'
 require_relative './Classes/rental'
 require_relative 'get_values'
+require_relative './MainClasses/show_lists'
+require_relative './MainClasses/create_person'
+require_relative './MainClasses/create_book'
+require_relative './MainClasses/create_rental'
 
 class App
   attr_reader :books, :people, :rentals
 
-  # Remove unnecessary parameters
   def initialize
     @books = []
     @people = []
@@ -34,8 +37,8 @@ class App
       case option
       when '2' then list_all_people
       when '1' then list_all_books
-      when '3' then create_person
-      when '4' then create_book
+      when '3' then CreatePerson.new.create_person(@people)
+      when '4' then CreateBook.new.create_book(@books)
       when '5' then create_rental
       when '6' then list_all_rentals_by_id
       when '7'
@@ -85,17 +88,6 @@ class App
     specialization = specialization_getter
     teacher = Teacher.new(age, specialization, name)
     people << teacher unless @people.include?(teacher)
-  end
-
-  # Create books file
-  def create_book
-    print 'Title: '
-    title = gets.chomp.capitalize
-    print 'Author: '
-    author = gets.chomp.capitalize
-    book = Book.new(title, author)
-    books << book unless @books.include?(book)
-    puts 'Book created successfully'
   end
 
   # Create rental file

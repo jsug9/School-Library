@@ -1,45 +1,41 @@
 require_relative '../Classes/student'
 require_relative '../Classes/teacher'
+require_relative '../get_values'
 
 class CreatePerson
   def set_name
-    print 'Name: '
-    gets.chomp
+    name_getter
   end
 
-  def pick_age
-    print 'Age: '
-    gets.chomp
+  def set_age
+    age_getter
   end
 
   def permission?
-    print 'Has parent permission? [Y/N]: '
-    has_parent_permission = gets.chomp
-    has_parent_permission.downcase == 'y'
+    permission_getter
   end
 
-  def pick_specialization
-    print 'Specialization: '
-    gets.chomp
+  def set_specialization
+    specialization_getter
   end
 
   def create_person(people)
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-    option_person = gets.chomp
-    case option_person
+    option = gets.chomp
+    case option
     when '1'
-      person = Student.new(pick_age, pick_name, parent_permission: permission?)
+      person = Student.new(set_age, set_name, parent_permission: permission?)
     when '2'
-      age = pick_age
-      name = pick_name
-      specialization = pick_specialization
+      age = set_age
+      name = set_name
+      specialization = set_specialization
       person = Teacher.new(age, specialization, name)
     else
       puts 'Sorry, you choose a wrong option'
       return
     end
 
-    people << person
+    people << person unless people.include?(person)
     puts 'Person created successfully'
   end
 end

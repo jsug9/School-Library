@@ -21,12 +21,13 @@ def age_getter
 end
 
 def string_getter(string)
-  puts `#{string}:`
+  newString = string
+  puts `#{newString}:`
   value = gets.chomp
 
   if value == ''
-    puts `#{string} cannot be empty`
-    string_getter(string)
+    puts `#{newString} cannot be empty`
+    string_getter(newString)
   end
 
   value.capitalize
