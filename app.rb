@@ -2,6 +2,8 @@ require_relative './Classes/student'
 require_relative './Classes/teacher'
 require_relative './Classes/book'
 require_relative './Classes/rental'
+require_relative './MainClasses/create_rental'
+require_relative './MainClasses/show_lists'
 require_relative 'get_values'
 require_relative './MainClasses/show_lists'
 require_relative './MainClasses/create_person'
@@ -35,12 +37,12 @@ class App
       option = gets.chomp
 
       case option
-      when '2' then list_all_people
-      when '1' then list_all_books
+      when '1' then ShowLists.new.list_all_books(@books)
+      when '2' then ShowLists.new.list_all_people(@people)
       when '3' then CreatePerson.new.create_person(@people)
       when '4' then CreateBook.new.create_book(@books)
-      when '5' then create_rental
-      when '6' then list_all_rentals_by_id
+      when '5' then create_rental(@books, @people, @rentals)
+      when '6' then ShowLists.new.list_all_rentals_by_id(@people)
       when '7'
         puts "Thank you for using this app!\n "
         @status = false
@@ -48,15 +50,6 @@ class App
         puts "Sorry, you choose a wrong option\n "
       end
     end
-  end
-
-  # Lists files
-  def list_all_books
-    @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
-  end
-
-  def list_all_people
-    @people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
   end
 
   # Create People file
@@ -73,23 +66,7 @@ class App
     end
     puts 'Person created successfully'
   end
-
-  def create_student
-    age = age_getter
-    name = name_getter
-    parent_permission = permission_getter
-    student = Student.new(age, name, parent_permission: parent_permission)
-    people << student unless @people.include?(student)
-  end
-
-  def create_teacher
-    age = age_getter
-    name = name_getter
-    specialization = specialization_getter
-    teacher = Teacher.new(age, specialization, name)
-    people << teacher unless @people.include?(teacher)
-  end
-
+  
   # Create rental file
   def create_rental
     puts 'Select a book from the following list by number'
