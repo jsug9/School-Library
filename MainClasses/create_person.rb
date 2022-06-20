@@ -1,6 +1,6 @@
 require_relative '../Classes/student'
 require_relative '../Classes/teacher'
-require_relative '../get_values'
+require_relative 'get_values'
 
 class CreatePerson
   def set_name
