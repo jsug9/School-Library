@@ -22,6 +22,11 @@ To get a local copy of the project, follow these steps:
 - GitHub: [@jsug9](https://github.com/jsug9)
 - LinkedIn: [Augusto Galindo](https://www.linkedin.com/in/augustogalindo/)
 
+👤 **Firdavs Allamurotov**
+
+- GitHub: [@fed1k](https://github.com/fed1k)
+- LinkedIn: [Firdavs Allamurotov](https://www.linkedin.com/in/firdavs-allamurotov/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
