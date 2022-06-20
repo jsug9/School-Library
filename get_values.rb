@@ -20,19 +20,6 @@ def age_getter
   age
 end
 
-def string_getter(string)
-  newString = string
-  puts `#{newString}:`
-  value = gets.chomp
-
-  if value == ''
-    puts `#{newString} cannot be empty`
-    string_getter(newString)
-  end
-
-  value.capitalize
-end
-
 def name_getter
   puts 'Name: '
   name = gets.chomp
