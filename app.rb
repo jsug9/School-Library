@@ -2,8 +2,10 @@ require_relative './MainClasses/show_lists'
 require_relative './MainClasses/create_person'
 require_relative './MainClasses/create_book'
 require_relative './MainClasses/create_rental'
+require_relative './LoadData/load_people'
 
 class App
+  include PeopleController
   attr_reader :books, :people, :rentals
 
   def initialize
@@ -38,6 +40,7 @@ class App
       when '6' then ShowLists.new.list_all_rentals_by_id(@people)
       when '7'
         puts "Thank you for using this app!\n "
+        save_people
         @status = false
       else
         puts "Sorry, you choose a wrong option\n "
