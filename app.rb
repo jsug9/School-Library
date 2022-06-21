@@ -7,7 +7,7 @@ require_relative './LoadData/load_books'
 
 class App
   include PeopleController
-  include Books_controller
+  include BooksController
   attr_accessor :books, :people, :rentals
 
   def initialize
