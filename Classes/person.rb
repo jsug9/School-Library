@@ -8,9 +8,9 @@ class Person < Nameable
   attr_accessor :name, :age, :parent_permission, :rentals
   attr_reader :id
 
-  def initialize(age, name = 'Unknown', parent_permission: true)
+  def initialize(id:, age:, name: 'Unknown', parent_permission: true)
     super()
-    @id = SecureRandom.uuid
+    @id = id || SecureRandom.uuid
     @name = name
     @age = age
     @parent_permission = parent_permission

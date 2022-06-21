@@ -1,1 +1,1 @@
-[{"id":"693f9323-404e-4652-a4d5-2206d58954c2","name":"Aaa","age":"22","parent_permission":false,"class":"Student"}]
+[{"id":"34913ac7-c445-497d-b34c-8e682c0d19e8","name":"Augusto","age":"22","parent_permission":false,"class":"Student"},{"id":"f2f7eac3-c0cb-42da-9c08-34eeb21d519d","name":"Firdavs","age":"33","parent_permission":true,"class":"Teacher","specialization":"Coding"}]

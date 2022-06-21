@@ -34,6 +34,6 @@ module PeopleController
                     class: person.class })
       end
     end
-    File.write('./data/people.json', JSON.generate(data), mode: 'a+')
+    File.write('./data/people.json', JSON.generate(data))
   end
 end

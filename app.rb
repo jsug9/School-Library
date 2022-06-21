@@ -40,8 +40,8 @@ class App
       when '6' then ShowLists.new.list_all_rentals_by_id(@people)
       when '7'
         puts "Thank you for using this app!\n "
-        save_people
         @status = false
+        save_people
       else
         puts "Sorry, you choose a wrong option\n "
       end
