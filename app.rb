@@ -6,11 +6,11 @@ require_relative './LoadData/load_people'
 
 class App
   include PeopleController
-  attr_reader :books, :people, :rentals
+  attr_accessor :books, :people, :rentals
 
   def initialize
     @books = []
-    @people = []
+    @people = load_people
     @rentals = []
     @status = true
     @welcome_message = [

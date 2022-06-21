@@ -18,8 +18,6 @@ module PeopleController
                               parent_permission: person['parent_permission'],
                               specialization: person['specialization']))
       end
-    else
-      File.write(file, '[]')
     end
     data
   end
@@ -36,6 +34,6 @@ module PeopleController
                     class: person.class })
       end
     end
-    File.write('./data/people.json', JSON.generate(data))
+    File.write('./data/people.json', JSON.generate(data), mode: 'a+')
   end
 end
