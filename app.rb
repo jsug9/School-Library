@@ -2,14 +2,20 @@ require_relative './MainClasses/show_lists'
 require_relative './MainClasses/create_person'
 require_relative './MainClasses/create_book'
 require_relative './MainClasses/create_rental'
+require_relative './ClassData/people_data'
+require_relative './ClassData/books_data'
+require_relative './ClassData/rentals_data'
 
 class App
-  attr_reader :books, :people, :rentals
+  include PeopleData
+  include RentalsData
+  include BooksData
+  attr_accessor :books, :people, :rentals
 
   def initialize
-    @books = []
-    @people = []
-    @rentals = []
+    @books = load_books
+    @people = load_people
+    @rentals = load_rentals
     @status = true
     @welcome_message = [
       "Welcome to School Library App!\n ",
@@ -22,6 +28,12 @@ class App
       '6 - List all rentals for a given person id',
       '7 - Exit'
     ]
+  end
+
+  def save
+    save_people
+    save_books
+    save_rentals
   end
 
   def run # rubocop:disable Metrics/CyclomaticComplexity
@@ -39,6 +51,7 @@ class App
       when '7'
         puts "Thank you for using this app!\n "
         @status = false
+        save
       else
         puts "Sorry, you choose a wrong option\n "
       end

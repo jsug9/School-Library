@@ -11,9 +11,12 @@ To get a local copy of the project, follow these steps:
  git clone https://github.com/jsug9/School-Library
  ```
  ```
- cd portfolio
+ cd School-Library
  ```
-
+3. Start the app
+```
+ruby main.rb
+```
 
 ## Author
 

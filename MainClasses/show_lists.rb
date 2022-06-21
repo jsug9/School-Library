@@ -12,7 +12,6 @@ class ShowLists
     people.each_with_index do |person, index|
       puts "#{index}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
-    print 'Enter the id of the person: '
     person_selection = gets.chomp.to_i
     puts 'Rentals:'
     person = people[person_selection]
