@@ -3,13 +3,15 @@ require_relative './MainClasses/create_person'
 require_relative './MainClasses/create_book'
 require_relative './MainClasses/create_rental'
 require_relative './LoadData/load_people'
+require_relative './LoadData/load_books'
 
 class App
   include PeopleController
+  include Books_controller
   attr_accessor :books, :people, :rentals
 
   def initialize
-    @books = []
+    @books = load_books
     @people = load_people
     @rentals = []
     @status = true
@@ -42,6 +44,7 @@ class App
         puts "Thank you for using this app!\n "
         @status = false
         save_people
+        save_books
       else
         puts "Sorry, you choose a wrong option\n "
       end
