@@ -1,7 +1,7 @@
 require 'json'
 require_relative '../Classes/book'
 
-module BooksController
+module BooksData
   def load_books
     data = []
     file = './data/books.json'

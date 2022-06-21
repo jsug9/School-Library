@@ -1,7 +1,7 @@
 require 'json'
 require_relative '../Classes/rental'
 
-module RentalController
+module RentalsData
   def get_book(title)
     @books.each { |book| return book if book.title == title }
   end

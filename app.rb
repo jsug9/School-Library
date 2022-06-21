@@ -2,14 +2,14 @@ require_relative './MainClasses/show_lists'
 require_relative './MainClasses/create_person'
 require_relative './MainClasses/create_book'
 require_relative './MainClasses/create_rental'
-require_relative './LoadData/load_people'
-require_relative './LoadData/load_books'
-require_relative './LoadData/load_rentals'
+require_relative './ClassData/people_data'
+require_relative './ClassData/books_data'
+require_relative './ClassData/rentals_data'
 
 class App
-  include PeopleController
-  include Rental_Controller
-  include BooksController
+  include PeopleData
+  include RentalsData
+  include BooksData
   attr_accessor :books, :people, :rentals
 
   def initialize
@@ -30,6 +30,12 @@ class App
     ]
   end
 
+  def save
+    save_people
+    save_books
+    save_rentals
+  end
+
   def run # rubocop:disable Metrics/CyclomaticComplexity
     while @status
       @welcome_message.each { |i| puts i }
@@ -45,9 +51,7 @@ class App
       when '7'
         puts "Thank you for using this app!\n "
         @status = false
-        save_people
-        save_books
-        save_rentals
+        save
       else
         puts "Sorry, you choose a wrong option\n "
       end

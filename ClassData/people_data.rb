@@ -2,7 +2,7 @@ require 'json'
 require './Classes/student'
 require './Classes/teacher'
 
-module PeopleController
+module PeopleData
   def load_people
     data = []
     file = './data/people.json'
