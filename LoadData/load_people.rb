@@ -12,14 +12,14 @@ module PeopleController
           student = Student.new(person['age'], person['name'], person['classroom'],
                                 parent_permission: person['parent_permission'])
           student.id = person['id']
-          data.push(student)
+          data << student
         end
         next unless person['class'] == 'Teacher'
 
         teacher = Teacher.new(person['age'], person['specialization'], person['name'],
                               parent_permission: person['parent_permission'])
         teacher.id = person['id']
-        data.push(teacher)
+        data << teacher
       end
     end
     data

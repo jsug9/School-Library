@@ -1,13 +1,22 @@
 require 'json'
 require_relative '../Classes/rental'
 
-module Rental_Controller
+module RentalController
+  def get_book(title)
+    @books.each { |book| return book if book.title == title }
+  end
+
+  def get_person(id)
+    @people.each { |person| return person if person.id == id }
+  end
+
   def load_rentals
     data = []
     file = './data/rentals.json'
     if File.exist?(file) && File.read(file) != ''
       JSON.parse(File.read(file)).each do |rental|
-        data << Rental.new( rental['date'], rental['book'], rental['person'])
+        rental = Rental.new(rental['date'], get_book(rental['book']), get_person(rental['person']))
+        data << rental
       end
     end
     data
@@ -16,7 +25,7 @@ module Rental_Controller
   def save_rentals
     data = []
     @rentals.each do |rental|
-      data << {date: rental.date, book: rental.book, person: rental.person}
+      data << { date: rental.date, book: rental.book.title, person: rental.person.id }
     end
     File.write('./data/rentals.json', JSON.generate(data))
   end
