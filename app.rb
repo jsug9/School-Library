@@ -8,8 +8,8 @@ require_relative './LoadData/load_rentals'
 
 class App
   include PeopleController
-  include Books_controller
   include Rental_Controller
+  include BooksController
   attr_accessor :books, :people, :rentals
 
   def initialize
