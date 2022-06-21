@@ -24,12 +24,12 @@ class CreatePerson
     option = gets.chomp
     case option
     when '1'
-      person = Student.new(age: set_age, name: set_name, parent_permission: permission?)
+      person = Student.new(set_age, set_name, parent_permission: permission?)
     when '2'
       age = set_age
       name = set_name
       specialization = set_specialization
-      person = Teacher.new(age: age, specialization: specialization, name: name)
+      person = Teacher.new(age, specialization, name)
     else
       puts 'Sorry, you choose a wrong option'
       return

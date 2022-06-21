@@ -9,14 +9,14 @@ module PeopleController
     if File.exist?(file) && File.read(file) != ''
       JSON.parse(File.read(file)).each do |person|
         if person['class'] == 'Student'
-          data.push(Student.new(id: person['id'], name: person['name'], age: person['age'],
-                                parent_permission: person['parent_permission']))
+          student = Student.new(person['age'], person['name'], person['classroom'], parent_permission: person['parent_permission'])
+          student.id = person['id']
+          data.push(student)
         end
         next unless person['class'] == 'Teacher'
-
-        data.push(Teacher.new(id: person['id'], name: person['name'], age: person['age'],
-                              parent_permission: person['parent_permission'],
-                              specialization: person['specialization']))
+        teacher = Teacher.new(person['age'], person['specialization'], person['name'], parent_permission: person['parent_permission'])
+        teacher.id = person['id']
+        data.push(teacher)
       end
     end
     data

@@ -5,12 +5,11 @@ require_relative './Decorators/trimmed_decorator'
 require_relative 'rental'
 
 class Person < Nameable
-  attr_accessor :name, :age, :parent_permission, :rentals
-  attr_reader :id
+  attr_accessor :id, :name, :age, :parent_permission, :rentals
 
-  def initialize(id:, age:, name: 'Unknown', parent_permission: true)
+  def initialize(age, name = 'Unknown', parent_permission: true)
     super()
-    @id = id || SecureRandom.uuid
+    @id = SecureRandom.uuid
     @name = name
     @age = age
     @parent_permission = parent_permission
