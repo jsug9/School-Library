@@ -4,16 +4,18 @@ require_relative './MainClasses/create_book'
 require_relative './MainClasses/create_rental'
 require_relative './LoadData/load_people'
 require_relative './LoadData/load_books'
+require_relative './LoadData/load_rentals'
 
 class App
   include PeopleController
   include Books_controller
+  include Rental_Controller
   attr_accessor :books, :people, :rentals
 
   def initialize
     @books = load_books
     @people = load_people
-    @rentals = []
+    @rentals = load_rentals
     @status = true
     @welcome_message = [
       "Welcome to School Library App!\n ",
@@ -45,6 +47,7 @@ class App
         @status = false
         save_people
         save_books
+        save_rentals
       else
         puts "Sorry, you choose a wrong option\n "
       end
