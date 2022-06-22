@@ -6,7 +6,7 @@ describe Person do
   age = 20
   name = 'Firdavs'
   parent_permission = true
-  let(:person) {Person.new(age, name, parent_permission: parent_permission)}
+  let(:person) { Person.new(age, name, parent_permission: parent_permission) }
 
   it 'should be a person' do
     expect(person).to be_a(Person)
