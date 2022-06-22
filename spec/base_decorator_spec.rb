@@ -1,10 +1,8 @@
 require './Classes/Decorators/base_decorator'
-require './Classes/Decorators/nameable'
 require './Classes/person'
 
 describe BaseDecorator do
-  let(:person) { Person.new(18, 'Augusto') }
-  let(:nameable) { Nameable.new }
+  let(:person) { Person.new(18, 'augusto') }
   let(:base_decorator) { BaseDecorator.new(person) }
 
   it 'should be a base decorator' do
