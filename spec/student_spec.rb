@@ -5,13 +5,13 @@ describe Student do
   age = 27
   parent_permission = true
   classroom = '9b'
-  let(:student) {Student.new(age, name, classroom, parent_permission: parent_permission)}
+  let(:student) { Student.new(age, name, classroom, parent_permission: parent_permission) }
 
   it 'should have a name' do
     expect(student.name).to be(name)
   end
 
-  it 'should have an age' do 
+  it 'should have an age' do
     expect(student.age).to be(age)
   end
 
@@ -27,7 +27,7 @@ describe Student do
     expect(student.play_hooky).to match("¯\(ツ)/¯")
   end
 
-  it 'should be added to classroom' do 
+  it 'should be added to classroom' do
     augusto = Student.new(18, 'Augusto')
     augusto.classroom = Classroom.new('1A')
     expect(augusto.classroom.label).to match('1A')

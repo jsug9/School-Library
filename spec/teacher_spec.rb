@@ -5,7 +5,7 @@ describe Teacher do
   name = 'Farhan'
   specialization = 'YouTuber'
   parent_permission = true
-  let(:teacher) {Teacher.new(age, specialization, name, parent_permission: parent_permission)}
+  let(:teacher) { Teacher.new(age, specialization, name, parent_permission: parent_permission) }
 
   it 'should have an age' do
     expect(teacher.age).to be(age)
