@@ -16,4 +16,8 @@ describe Book do
   it 'should have an author' do
     expect(book.author).to eq(author)
   end
+
+  it 'should have a list of rentals' do
+    expect(book.rentals).to eq([])
+  end
 end
