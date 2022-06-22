@@ -3,7 +3,7 @@ require './Classes/Decorators/nameable'
 require './Classes/person'
 
 describe CapitalizeDecorator do
-  let(:person) { Person.new(18, 'augusto') }
+  let(:person) { Person.new(22, 'maximilianus') }
   let(:capitalize_decorator) { CapitalizeDecorator.new(person) }
 
   it 'should be a CapitalizeDecorator' do
@@ -15,6 +15,6 @@ describe CapitalizeDecorator do
   end
 
   it 'returns the person name capitalized' do
-    expect(capitalize_decorator.correct_name).to eq('Augusto')
+    expect(capitalize_decorator.correct_name).to eq('Maximilianus')
   end
 end

@@ -2,7 +2,7 @@ require './Classes/Decorators/base_decorator'
 require './Classes/person'
 
 describe BaseDecorator do
-  let(:person) { Person.new(18, 'augusto') }
+  let(:person) { Person.new(22, 'maximilianus') }
   let(:base_decorator) { BaseDecorator.new(person) }
 
   it 'should be a base decorator' do
