@@ -6,8 +6,8 @@ describe CapitalizeDecorator do
   let(:person) { Person.new(18, 'augusto') }
   let(:capitalize_decorator) { CapitalizeDecorator.new(person) }
 
-  it 'should be a base decorator' do
-    expect(capitalize_decorator).to be_a(BaseDecorator)
+  it 'should be a CapitalizeDecorator' do
+    expect(capitalize_decorator).to be_a(CapitalizeDecorator)
   end
 
   it 'has a correct_name method' do
