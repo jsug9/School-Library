@@ -13,7 +13,3 @@ class Book
     Rental.new(date, self, person)
   end
 end
-
-book = Book.new('The Great Gatsby', 'F. Scott Fitzgerald')
-puts book.title
-# => The Great Gatsby
